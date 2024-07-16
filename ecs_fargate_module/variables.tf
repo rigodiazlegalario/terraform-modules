@@ -47,7 +47,7 @@ variable "ecs_containers" {
     portMappings = [{
         containerPort = number
         hostPort      = number
-      }],
+      }]
   }))
 }
 
