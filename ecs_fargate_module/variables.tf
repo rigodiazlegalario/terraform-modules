@@ -44,7 +44,10 @@ variable "ecs_containers" {
     image        = string
     cpu          = number
     memory       = number
-    container_port = number
+    portMappings = [{
+        containerPort = number
+        hostPort      = number
+      }],
   }))
 }
 
