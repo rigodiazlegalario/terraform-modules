@@ -25,7 +25,7 @@ resource "aws_ecs_task_definition" "task_definition_legalario" {
 
 resource "aws_ecs_service" "ecs_service_legalario" {
   name            = "${var.project_name}-service"
-  cluster         = var.cluster_count ? aws_ecs_cluster.ecs_cluster_legalario.id : var.cluster_name
+  cluster         = var.cluster_count ? aws_ecs_cluster.ecs_cluster_legalario[0].id : var.cluster_name
   task_definition = aws_ecs_task_definition.task_definition_legalario.arn
   desired_count   = var.desired_count
   launch_type     = "FARGATE"

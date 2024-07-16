@@ -1,6 +1,6 @@
 output "ecs_cluster_id" {
   description = "The ID of the ECS cluster."
-  value       = var.cluster_count ? aws_ecs_cluster.ecs_cluster_legalario.id : var.cluster_name
+  value       = var.cluster_count ? aws_ecs_cluster.ecs_cluster_legalario[0].id : var.cluster_name
 }
 
 output "ecs_task_definition_arn" {
