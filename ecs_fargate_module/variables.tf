@@ -44,10 +44,10 @@ variable "ecs_containers" {
     image        = string
     cpu          = number
     memory       = number
-    portMappings = [{
+    portMappings = list(object({
         containerPort = number
         hostPort      = number
-      }]
+    }))
   }))
 }
 
