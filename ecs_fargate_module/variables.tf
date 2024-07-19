@@ -48,7 +48,7 @@ variable "ecs_containers" {
         containerPort = number
         hostPort      = number
     }))
-    llogConfiguration = object({
+    logConfiguration = object({
       logDriver = string
       options   = map(string)
     })
