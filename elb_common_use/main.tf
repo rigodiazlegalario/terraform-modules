@@ -3,6 +3,7 @@ resource "aws_lb_target_group" "tg_legalario" {
   port = var.tg_port
   vpc_id = var.vpc_id
   target_type = "ip"
+  protocol    = "HTTP"
   health_check {
     path = var.health_check_path
   }
