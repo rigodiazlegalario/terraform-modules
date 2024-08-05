@@ -48,6 +48,21 @@ variable "ecs_containers" {
         containerPort = number
         hostPort      = number
     }))
+    environmentFiles = optional(list(object({
+      value = string
+      type  = string
+    })))
+    healthCheck = optional(object({
+      command     = list(string)
+      interval    = number
+      timeout     = number
+      retries     = number
+      startPeriod = number
+    }))
+    dependsOn = optional(list(object({
+      containerName = string
+      condition     = string
+    })))
     logConfiguration = object({
       logDriver = string
       options   = map(string)
