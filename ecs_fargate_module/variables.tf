@@ -54,8 +54,7 @@ variable "ecs_containers" {
     })))
     environment = optional(list(object({
       name      = string
-      valueFrom = optional(string)  # Para variables desde Parameter Store
-      value     = optional(string)  # Para variables de entorno normales
+      valueFrom = string
     })))
     healthCheck = optional(object({
       command     = list(string)
