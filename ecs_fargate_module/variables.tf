@@ -48,14 +48,14 @@ variable "ecs_containers" {
         containerPort = number
         hostPort      = number
     }))
-    environmentFiles = optional(list(object({
-      value = string
-      type  = string
-    })))
     environment = optional(list(object({
       name      = string
       valueFrom = optional(string)
       value     = optional(string)
+    })))
+    environmentFiles = optional(list(object({
+      value = string
+      type  = string
     })))
     healthCheck = optional(object({
       command     = list(string)
