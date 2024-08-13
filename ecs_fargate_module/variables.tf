@@ -53,7 +53,7 @@ variable "ecs_containers" {
       valueFrom = optional(string)
       value     = optional(string)
     })))
-    environmentFiles = optional(list(object({
+    secrets = optional(list(object({
       value = string
       type  = string
     })))
