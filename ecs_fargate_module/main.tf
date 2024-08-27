@@ -28,8 +28,8 @@ resource "aws_ecs_task_definition" "task_definition_legalario" {
       name = volume.value.name
 
       efs_volume_configuration {
-        file_system_id     = volume.value.file_system_id
-        root_directory     = volume.value.root_directory
+        file_system_id = volume.value.file_system_id
+        root_directory = volume.value.root_directory
       }
     }
   }

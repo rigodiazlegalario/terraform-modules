@@ -52,6 +52,11 @@ variable "ecs_containers" {
       name      = string
       valueFrom = string
     })))
+    mountPoints = optional(list(object({
+      sourceVolume  = string
+      containerPath = string
+      readOnly      = bool
+    })))
     environmentFiles = optional(list(object({
       value = string
       type  = string
@@ -105,9 +110,9 @@ variable "target_group_arn" {
 
 variable "efs_volume_configuration" {
   type = object({
-    name                = string
-    file_system_id      = string
-    root_directory      = string
+    name           = string
+    file_system_id = string
+    root_directory = string
   })
   default = null
 }
