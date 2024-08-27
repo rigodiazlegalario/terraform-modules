@@ -3,7 +3,7 @@ variable "project_name" {
 }
 
 variable "env" {
-  type = string
+  type        = string
   description = "environment abbreviation"
 }
 
@@ -24,7 +24,7 @@ variable "elb_name" {
 }
 
 variable "zone_id" {
-  type = string
+  type        = string
   description = "zone id of the route 53 hosted zone"
 }
 
@@ -37,6 +37,6 @@ variable "priority" {
 }
 
 variable "domain" {
-  type = string
+  type    = string
   default = "legalario.com"
 }

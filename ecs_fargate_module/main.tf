@@ -1,26 +1,26 @@
 resource "aws_ecs_cluster" "ecs_cluster_legalario" {
-	count = var.cluster_count ? 1 : 0 
+  count = var.cluster_count ? 1 : 0
 
-	name = var.cluster_name
-	setting {
+  name = var.cluster_name
+  setting {
     name  = "containerInsights"
     value = var.cluster_container_insights
   }
 }
 
 resource "aws_ecs_task_definition" "task_definition_legalario" {
-	family = var.task_definition.family
+  family = var.task_definition.family
 
-	execution_role_arn       = var.task_definition.task_execution_role_arn
-  task_role_arn            = var.task_definition.task_role_arn
-  
-	network_mode             = "awsvpc"
+  execution_role_arn = var.task_definition.task_execution_role_arn
+  task_role_arn      = var.task_definition.task_role_arn
+
+  network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.task_definition.cpu
   memory                   = var.task_definition.memory
-	container_definitions = jsonencode(
-		var.ecs_containers
-	)
+  container_definitions = jsonencode(
+    var.ecs_containers
+  )
 }
 
 resource "aws_ecs_service" "ecs_service_legalario" {

@@ -1,6 +1,6 @@
 variable "project_name" {
   description = "value for the main name of the resources"
-  type = string
+  type        = string
 }
 
 variable "environment" {
@@ -13,40 +13,40 @@ variable "env" {
 
 variable "cluster_name" {
   description = "cluster name"
-  type = string
+  type        = string
 }
 
 variable "cluster_count" {
   description = "bool variable to create cluster"
-  type = bool
+  type        = bool
 }
 
 variable "cluster_container_insights" {
   description = "enable or disable expected"
-  type = string
+  type        = string
 }
 
 variable "task_definition" {
   description = "task definition variables"
   type = object({
-    family = string
-    cpu = number
-    memory = number
+    family                  = string
+    cpu                     = number
+    memory                  = number
     task_execution_role_arn = string
-    task_role_arn = string
+    task_role_arn           = string
   })
 }
 
 variable "ecs_containers" {
   description = "container definitions values"
   type = list(object({
-    name         = string
-    image        = string
-    cpu          = number
-    memory       = number
+    name   = string
+    image  = string
+    cpu    = number
+    memory = number
     portMappings = list(object({
-        containerPort = number
-        hostPort      = number
+      containerPort = number
+      hostPort      = number
     }))
     secrets = optional(list(object({
       name      = string
@@ -76,7 +76,7 @@ variable "ecs_containers" {
 
 variable "desired_count" {
   description = "number of task for the ecs service"
-  type = number
+  type        = number
 }
 
 variable "private_subnets" {

@@ -1,7 +1,7 @@
 resource "aws_lb_target_group" "tg_legalario" {
-  name = "tg-${var.project_name}-${var.env}"
-  port = var.tg_port
-  vpc_id = var.vpc_id
+  name        = "tg-${var.project_name}-${var.env}"
+  port        = var.tg_port
+  vpc_id      = var.vpc_id
   target_type = "ip"
   protocol    = "HTTP"
   health_check {
@@ -27,7 +27,7 @@ resource "aws_route53_record" "legalario_fairplay_record" {
 
 data "aws_lb_listener" "listener" {
   load_balancer_arn = data.aws_lb.alb_legalario.arn
-  port = 443
+  port              = 443
 }
 
 resource "aws_lb_listener_rule" "listener_rule" {

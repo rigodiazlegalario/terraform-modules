@@ -1,6 +1,6 @@
 variable "project_name" {
   description = "value for the main name of the resources"
-  type = string
+  type        = string
 }
 
 variable "environment" {
