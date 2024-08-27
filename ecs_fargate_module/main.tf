@@ -21,6 +21,18 @@ resource "aws_ecs_task_definition" "task_definition_legalario" {
   container_definitions = jsonencode(
     var.ecs_containers
   )
+  dynamic "volume" {
+    for_each = var.efs_volume_configuration != null ? [var.efs_volume_configuration] : []
+
+    content {
+      name = volume.value.name
+
+      efs_volume_configuration {
+        file_system_id     = volume.value.file_system_id
+        root_directory     = volume.value.root_directory
+      }
+    }
+  }
 }
 
 resource "aws_ecs_service" "ecs_service_legalario" {

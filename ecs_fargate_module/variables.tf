@@ -102,3 +102,12 @@ variable "container_name" {
 variable "target_group_arn" {
   type = string
 }
+
+variable "efs_volume_configuration" {
+  type = object({
+    name                = string
+    file_system_id      = string
+    root_directory      = string
+  })
+  default = null
+}
