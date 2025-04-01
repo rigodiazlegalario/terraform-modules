@@ -120,5 +120,5 @@ variable "efs_volume_configuration" {
 variable "enable_execute_command" {
   description = "Indicates whether ECS Exec should be enabled on the service"
   type        = bool
-  default     = true
+  default     = false
 }
