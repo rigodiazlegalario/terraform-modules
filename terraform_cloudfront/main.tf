@@ -133,3 +133,4 @@ resource "aws_cloudfront_distribution" "cdn" {
     prefix          = "cdn-cloudfront-${var.bucket_name_website}/"
   }
 }
+
